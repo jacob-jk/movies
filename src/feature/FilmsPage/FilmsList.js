@@ -11,7 +11,7 @@ import {
   Votes,
   FilmDetails,
 } from "./styled";
-import star from "../../images/star.png";
+import star from "../../images/star.svg";
 import Pager from "../../common/Pager";
 
 const Films = () => (
