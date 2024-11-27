@@ -9,7 +9,7 @@ import {
   IconContainer,
   StyledHeader,
 } from "./styled";
-import Search from "./Search";
+import Search from "../../common/Search";
 import videoIcon from "../../images/videoIcon.svg";
 
 export const Navigation = () => {

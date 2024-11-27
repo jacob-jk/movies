@@ -67,10 +67,6 @@ export const NavSection = styled.ul`
   text-decoration: none;
   list-style: none;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.tabletMax}px) {
-    gap: 20px;
-  }
-
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     gap: 20px;
   }

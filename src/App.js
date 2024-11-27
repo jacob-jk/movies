@@ -4,9 +4,12 @@ import {
   Route,
   Switch,
 } from "react-router-dom/cjs/react-router-dom";
-import FilmsPage from "./feature/FilmsPage/FilmsPage";
-import PeoplePage from "./feature/PeoplePage/PeoplePage";
-import Navigation from "./feature/Navigation";
+import Navigation from "./common/Navigation";
+import { toFilm, toFilms, toPeople, toPerson } from "./routes";
+import FilmsPage from "./feature/films/FilmsPage/FilmsPage";
+import FilmPage from "./feature/films/FilmPage/FilmPage";
+import PersonPage from "./feature/people/PersonPage/PersonPage";
+import PeoplePage from "./feature/people/PeoplePage/PeoplePage";
 
 function App() {
   return (
@@ -14,14 +17,20 @@ function App() {
       <Navigation />
 
       <Switch>
-        <Route path="/films">
+        <Route path={toFilm()}>
+          <FilmPage />
+        </Route>
+        <Route path={toPerson()}>
+          <PersonPage />
+        </Route>
+        <Route path={toFilms()}>
           <FilmsPage />
         </Route>
-        <Route path="/people">
+        <Route path={toPeople()}>
           <PeoplePage />
         </Route>
         <Route>
-          <Redirect to="/films" />
+          <Redirect to={toFilms()} />
         </Route>
       </Switch>
     </HashRouter>

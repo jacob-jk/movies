@@ -4,7 +4,7 @@ export const Search = () => {
   return (
     <Wrapper>
       <SearchIcon />
-      <Input placeholder="Search for movies..." />
+      <Input placeholder="Search for films..." />
     </Wrapper>
   );
 };

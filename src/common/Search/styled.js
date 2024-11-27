@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as SearchIconSVG } from "../../../images/searchIcon.svg";
+import { ReactComponent as SearchIconSVG } from "../../images/searchIcon.svg";
 
 export const Wrapper = styled.div`
   width: 432px;

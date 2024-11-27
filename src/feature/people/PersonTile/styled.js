@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom/cjs/react-router-dom";
 import styled from "styled-components";
 
 export const List = styled.div`
@@ -12,16 +13,18 @@ export const List = styled.div`
   }
 `;
 
-export const PeopleListItem = styled.div`
+export const PeopleListItem = styled(Link)`
   background-color: ${({ theme }) => theme.color.white};
   border-radius: 5px;
   display: grid;
-  box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
+  box-shadow: 0px 4px 12px #bac7d580;
   transition: 0.3s all;
   cursor: pointer;
   padding: 16px;
   gap: 12px;
   justify-content: center;
+  text-decoration: none;
+  color: inherit;
 
   &:hover {
     opacity: 0.8;
@@ -52,7 +55,6 @@ export const PeopleName = styled.div`
   font-size: 22px;
   text-align: center;
   line-height: 1.3;
-  overflow-wrap: anywhere;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 14px;
