@@ -1,40 +1,43 @@
-import {
-  HashRouter,
-  Redirect,
-  Route,
-  Switch,
-} from "react-router-dom/cjs/react-router-dom";
-import Navigation from "./common/Navigation";
-import { toFilm, toFilms, toPeople, toPerson } from "./routes";
-import FilmsPage from "./feature/films/FilmsPage/FilmsPage";
-import FilmPage from "./feature/films/FilmPage/FilmPage";
-import PersonPage from "./feature/people/PersonPage/PersonPage";
-import PeoplePage from "./feature/people/PeoplePage/PeoplePage";
+import { useEffect } from "react";
+import { HashRouter, Redirect, Route, Switch } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Header } from "./common/Header";
+import MoviesListPage from "./features/movies/MoviesPage";
+import PeoplePage from "./features/people/PeoplePage";
+import PersonPage from "./features/people/PersonPage";
+import MoviePage from "./features/movies/MoviePage";
+import { fetchGenres } from "./features/movies/MoviesGenres/genresSlice";
+import { toMovie, toMovies, toPeople, toPerson } from "./routes";
 
-function App() {
+const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchGenres());
+  }, [dispatch]);
+
   return (
     <HashRouter>
-      <Navigation />
-
+      <Header />
       <Switch>
-        <Route path={toFilm()}>
-          <FilmPage />
+        <Route path={toMovie()}>
+          <MoviePage />
+        </Route>
+        <Route path={toMovies()}>
+          <MoviesListPage />
         </Route>
         <Route path={toPerson()}>
           <PersonPage />
-        </Route>
-        <Route path={toFilms()}>
-          <FilmsPage />
         </Route>
         <Route path={toPeople()}>
           <PeoplePage />
         </Route>
         <Route>
-          <Redirect to={toFilms()} />
+          <Redirect to={toMovies()} />
         </Route>
       </Switch>
     </HashRouter>
   );
-}
+};
 
 export default App;
