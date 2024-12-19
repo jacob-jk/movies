@@ -1,60 +1,84 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-export const PagerWrapper = styled.div`
-  margin: 40px 0;
+export const PaginationWrapper = styled.div`
   display: flex;
   justify-content: center;
-`;
+  gap: 24px;
+  margin: 40px 0 103px;
 
-export const PagerButton = styled.button`
-  background-color: ${({ theme }) => theme.color.pattensBlue};
-  border: none;
-  border-radius: 5px;
-  margin: 6px;
-  padding: 0 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    margin: 6px 2px;
-    padding: 0 5px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    margin: 32px 0 31px;
+    gap: 8px;
   }
 `;
 
-export const PagerIconRotated = styled.img`
-  transform: rotate(180deg);
+export const Pages = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: ${({ theme }) => theme.color.waterloo};
+  font-size: 16px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.small}px) {
+    gap: 2px;
+    font-size: 10px;
+  }
 `;
 
-export const PagerText = styled.div`
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+export const PageNumber = styled.span`
+  color: ${({ theme }) => theme.color.woodsmoke};
+  font-weight: 600;
+`;
+
+export const StyledButtons = styled.div`
+  display: flex;
+  gap: 12px;
+`;
+
+export const Button = styled.button`
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 8px;
+  border-radius: ${({ theme }) => theme.border.borderRadius};
+  font-size: 14px;
+  border: none;
+  color: ${({ theme }) => theme.color.woodsmoke};
+  background-color: ${({ theme }) => theme.color.pattensBlue};
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  }
+  &:active {
+    transform: scale(1.05);
+  }
+
+  &:disabled {
+    background-color: ${({ theme }) => theme.color.mystic};
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    gap: 4px;
+    font-size: 10px;
+    padding: 8px 12px;
+  }
+`;
+
+export const ButtonText = styled.span`
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
     display: none;
   }
 `;
 
-export const PageInfo = styled.div`
-  margin: 0 16px;
-  display: flex;
+export const ArrowDoubled = styled.span`
+  display: none;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    margin: 0 8px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.medium}px) {
+    display: flex;
   }
-`;
-
-export const PageInfoStyled = styled.p`
-  color: ${({ theme }) => theme.color.waterloo};
-  font-size: 16px;
-  font-weight: 400;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    font-size: 12px;
-  }
-
-  ${({ $number }) =>
-    $number &&
-    css`
-      color: ${({ theme }) => theme.color.black};
-      font-weight: 600;
-      padding: 0 8px;
-    `}
 `;
